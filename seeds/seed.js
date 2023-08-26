@@ -1,7 +1,14 @@
+const path = require('path');
 const sequelize = require('../config/connection');
 const { User, Post } = require('../models');
-const userData = require('./userData.json');
-const postData = require('./postData.json');
+
+// Create absolute paths to JSON data files
+const userDataPath = path.join(__dirname, 'userData.json');
+const postDataPath = path.join(__dirname, 'postData.json');
+
+// Load JSON data
+const userData = require(userDataPath);
+const postData = require(postDataPath);
 
 console.log(postData);
 
@@ -18,7 +25,7 @@ const seedDatabase = async () => {
       await Post.create({
         title: post.title,
         comment: post.comment,
-        content: post.content, 
+        content: post.content,
         post_date: post.post_date,
         user_id: users[Math.floor(Math.random() * users.length)].id,
       });
