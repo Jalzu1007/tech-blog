@@ -1,17 +1,9 @@
 [
   {
     "title": "Why MVC is so important",
-    "blog_content": "MVC allows for blah balhh hfuiehfuifh",
-    "author": "Xandromus"
-  },
-  {
-    "title": "Why MVC is so important",
-    "blog_content": "MVC allows for blah balhh hfuiehfuifh",
-    "author": "Xandromus"
-  },
-  {
-    "title": "Why MVC is so important",
-    "blog_content": "MVC allows for blah balhh hfuiehfuifh",
-    "author": "Xandromus"
+    "comment": "MVC allows for blah balhh hfuiehfuifh",
+    "content": "Your valid content goes here",
+    "post_date": "2023-08-26T12:01:59.171Z",
+    "user_id": 1
   }
 ]

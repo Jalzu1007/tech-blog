@@ -1,6 +1,5 @@
 const sequelize = require('../config/connection');
 const { User, Post } = require('../models');
-
 const userData = require('./userData.json');
 const postData = require('./postData.json');
 
@@ -15,10 +14,17 @@ const seedDatabase = async () => {
   });
 
   for (const post of postData) {
-    await Post.create({
-      ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
+    try {
+      await Post.create({
+        title: post.title,
+        comment: post.comment,
+        content: post.content, 
+        post_date: post.post_date,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+      });
+    } catch (error) {
+      console.error('Error inserting post:', error);
+    }
   }
 
   process.exit(0);

@@ -1,50 +1,32 @@
-const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { User, Post } = require('../models');
+const userData = require('./userData.json');
+const postData = require('./postData.json');
 
-class Post extends Model {}
+const seedDatabase = async () => {
+  await sequelize.sync({ force: true });
 
-Post.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    comment: {
-      type: DataTypes.STRING,
-    },
-    content: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    post_date: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'post',
+  const users = await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  for (const post of postData) {
+    try {
+      await Post.create({
+        username: post.username,
+        title: post.title,
+        comment: post.comment,
+        content: post.content,
+        post_date: post.post_date,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+      });
+    } catch (error) {
+      console.error('Error inserting post:', error);
+    }
   }
-);
 
-module.exports = Post;
+  process.exit(0);
+};
+
+seedDatabase();
