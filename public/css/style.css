@@ -1,24 +1,74 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+/*Global Styling*/
+* {
+  font-family: 'BioRhyme', serif;
 }
 
-.no-button {
-  background: none;
-  border: none;
+html,
+body {
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
+  height: 100%;
+  background-color: #DDE6ED;
+}
+
+.wrapper {
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+.navbar-item:hover:not(.is-active) {
+  background-color: transparent;
+}
+
+.navbar-brand .navbar-item:hover {
+  color: whitesmoke;
+}
+
+.navbar-item.hover:hover {
+  color: lightgrey;
+}
+
+a:link,
+a:visited {
+  color: whitesmoke;
+}
+
+.hover:hover {
+  color: whitesmoke;
   text-decoration: none;
-  font-size: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+#email-login {
+  margin-bottom: 5px;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+#password-login {
+  margin-bottom: 5px;
+}
+
+
+#homepage-image {
+  width: 25%
+}
+
+#book-section-homepage {
+  display: flex;
+  margin-right: 900px;
+}
+
+#homepage-book-information {
+  margin-top: 25px;
+}
+
+.middle-box{
+  background-blend-mode: lighten;
+
+}
+
+
+#tile {
+  background-color: transparent !important;
 }
