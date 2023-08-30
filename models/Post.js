@@ -1,32 +1,48 @@
+const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
-const userData = require('../seeds/userData.json');
-const postData = require('../seeds/postData.json');
+const User = require('./User');
 
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+class Post extends Sequelize.Model {}
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  for (const post of postData) {
-    try {
-      await Post.create({
-        username: post.username,
-        title: post.title,
-        comment: post.comment,
-        content: post.content,
-        post_date: post.post_date,
-        user_id: users[Math.floor(Math.random() * users.length)].id,
-      });
-    } catch (error) {
-      console.error('Error inserting post:', error);
-    }
+Post.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    post_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: 'id',
+      },
+    },
+  },
+  {
+    sequelize,
+    modelName: 'Post',
   }
+);
 
-  process.exit(0);
-};
+// Define the association
+Post.belongsTo(User, { foreignKey: 'user_id' });
 
-seedDatabase();
+module.exports = Post;
