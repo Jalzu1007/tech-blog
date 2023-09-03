@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -32,7 +32,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [6],
+        len: [8],
       },
     },
   },
@@ -43,9 +43,7 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        if (updatedUserData.changed('password')) {
-          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        }
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       },
     },
