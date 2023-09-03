@@ -4,69 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <!--Link to Bulma CSS Framework-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <!--Link to CSS Stylesheet-->
+  <title>Tech Blog - Your Source for Tech Insights</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
-  <!-- jQuery Library -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-  <div class="wrapper">
-  <!--Header Container-->
-  <header>
-    <!--Navbar Section-->
-    <nav class="navbar p-3" role="navigation" aria-label="main navigation" style="background-color: #526D82;">
-    <div class="navbar-brand">
-      <a class="navbar-item hover has-text-weight-bold is-size-5"  width="112" height="28" href="/">The Tech Blog</a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu navbar-end">
-      <div class="navbar-item has-text-weight-bold is-size-5" width="112" height="28">
-      <!--Render conditional statements-->
-        {{#if loggedIn}}
-        <a class="navbar-item hover" href="/">Home</a>
-        <a class="navbar-item hover" id="dashboard" href="/posts">Dashboard</a>
-        <a class="navbar-item hover" id="logout">Logout</a>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="tech">🔧</span>
+        <a href="/">Tech Blog</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard">Dashboard</a> |
+        <button id="logout">Logout</button>
+        </form>
         {{else}}
-          <a class="navbar-item hover" href="/login">Login</a>
+        <a href="/login">Login</a> |
+        <a href="/signup">Signup</a>
         {{/if}}
-      </div>
-      </div>
-    </nav>
-  </header>
-  <!--Main Container-->
-  <main class="container container-fluid mt-5">
-    <!-- Render the sub layout -->
-    {{{ body }}}
-  </main>
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      <!-- Add footer content if needed -->
+    </footer>
   </div>
-<!--Render conditional statements-->
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  <script src="/js/createPost.js"></script>
-  <script src="/js/createComment.js"></script>
-  {{else}}
-  <script src="/js/login.js"></script>
-  {{/if}}
-  <!-- jQuery script for Bulma navbar functionality -->
-  <script>
-    $(document).ready(function () {
-      // Check for click events on the navbar burger icon
-      $(".navbar-burger").click(function () {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
-      });
-    });
-  </script>
 
+  <!-- Render script for logged-in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>
