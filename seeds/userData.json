@@ -1,17 +1,17 @@
 [
   {
-    "name": "John Doe",
-    "email": "john@example.com",
+    "name": "Elon Musk",
+    "email": "elon@example.com",
     "password": "password123"
   },
   {
-    "name": "Jane Smith",
-    "email": "jane@example.com",
+    "name": "Bill Gates",
+    "email": "bill@example.com",
     "password": "password456"
   },
   {
-    "name": "Michael Johnson",
-    "email": "michael@example.com",
+    "name": "Jeff Bezos",
+    "email": "jeff@example.com",
     "password": "password789"
   }
 ]
