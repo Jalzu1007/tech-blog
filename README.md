@@ -70,7 +70,7 @@ To run the Tech Blog locally, follow these steps:
 8. Logout
     - To sign out of the site, click on the "Logout" option in the navigation.    
     
-To experience the application, visit the deployed Heroku website: [Tech Blog](https://text-editor-jalzu1007-1b3dad0681d3.herokuapp.com/)
+To experience the application, visit the deployed Heroku website: [Tech Blog](https://tech-blog-jalzu1007-7d5a00d9e01b.herokuapp.com/)
 
 ## Credits
 
