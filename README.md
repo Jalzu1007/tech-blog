@@ -1,5 +1,7 @@
 # tech-blog
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Description
 
 The Tech Blog CMS is a Content Management System (CMS) that allows developers to publish articles, blog posts, and share their thoughts and opinions on various tech topics. This application follows the Model-View-Controller (MVC) architectural pattern, using technologies such as Express.js, Sequelize, Handlebars.js, and more. It provides a user-friendly platform for tech enthusiasts to interact, share knowledge, and engage in discussions.
@@ -69,6 +71,10 @@ To run the Tech Blog locally, follow these steps:
     
 8. Logout
     - To sign out of the site, click on the "Logout" option in the navigation.    
+
+Screenshots of the blog:
+
+![alt text](./public/images/tech-blog-screenshot.png)
     
 To experience the application, visit the deployed Heroku website: [Tech Blog](https://tech-blog-jalzu1007-7d5a00d9e01b.herokuapp.com/)
 
@@ -85,4 +91,26 @@ Third-Party Assets:
 
 ## License
 
-N/A
+This application is licensed under MIT, for more information please visit: [MIT](https://opensource.org/licenses/MIT)
+
+MIT License
+
+  Copyright (c) 2023 Tech Blog
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
